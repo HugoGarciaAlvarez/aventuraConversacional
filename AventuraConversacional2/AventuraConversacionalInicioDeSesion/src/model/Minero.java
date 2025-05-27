@@ -50,18 +50,18 @@ public class Minero extends Personaje {
 	
 	public void buscaTesoros() {
 		
-		Scanner sc = new Scanner(System.in);
+		
 		 int contestar =0;
 		System.out.println("Después de la batalla, decides continuar excavando en busca de tesoros.");
         System.out.println("Mientras excavas llegas al primer nivel, donde hay un vendedor un tanto misterioso");
         System.out.println("Vendedor misterioso 👤: Hola minero, ¿te gustaría tomar esta poción?, con ella podrás ver con más claridad");
         System.out.println("1. CLARO");
         System.out.println("2. NO GRACIAS");
-         contestar = sc.nextInt();
+         contestar = CorrecionErrorInt.getInstance().correcionDeErrores();
         while (contestar != 1 && contestar != 2) {
 			System.out.println("Opción invalida, introduce 1 si quieres la poción o 2 si no la quieres.");
 			
-			contestar = sc.nextInt();
+			contestar = CorrecionErrorInt.getInstance().correcionDeErrores();
         }
 		if (contestar == 1) {
 			System.out.println("¡El vendedor te la ha jugado!");
@@ -75,7 +75,7 @@ public class Minero extends Personaje {
 	
 	
 	public void misionEsqueletoMinero() {
-		Scanner sc = new Scanner(System.in);
+		
 		int actua =0;
 		
 		System.out.println("Te encuentras un esqueleto el cual era un antiguo minero");
@@ -86,11 +86,11 @@ public class Minero extends Personaje {
 		System.out.println("De repente te encuentras un murciégalo y tienes que actuar rapido, ¿qué haces?");
 		System.out.println("1. Esquivar");
 		System.out.println("2. Cubrirte");
-		 actua = sc.nextInt();
+		 actua =CorrecionErrorInt.getInstance().correcionDeErrores();
 		while (actua != 1 && actua != 2) {
 			System.out.println("Opción invalida, introduce 1 si quieres esquivar o 2 si quieres cubrirte");
 			
-			actua = sc.nextInt();
+			actua = CorrecionErrorInt.getInstance().correcionDeErrores();
 		} if (actua == 1) {
 			System.out.println("¡Bien hecho!, el murciégalo sigue su camino y no os habeis enfrentado");
 		 
@@ -108,7 +108,7 @@ public class Minero extends Personaje {
 	
 	public void finalMina1() {
 		
-		Scanner sc = new Scanner(System.in);
+		CorrecionErrorInt.getInstance().correcionDeErrores();
 		int caja = 0;
 		
 		System.out.println("Llegas al final del nivel 1 de la mina y te encuentras un 2x2 de cajas.");
@@ -125,13 +125,13 @@ public class Minero extends Personaje {
 		System.out.println("3. Caja superior derecha");
 		System.out.println("4. Caja inferior derecha");
 		
-		 caja = sc.nextInt();
+		 caja = CorrecionErrorInt.getInstance().correcionDeErrores();
 		
 		while (caja < 1 || caja > 4) {
 			System.out.println(
 					"Opción inválida, introduce entre 1 y 4 para elegir una caja");
 
-			caja = sc.nextInt();
+			caja = CorrecionErrorInt.getInstance().correcionDeErrores();
 		}
 		switch (caja) {
 
@@ -165,19 +165,19 @@ public class Minero extends Personaje {
 	
 	public void nivelMina2() {
 		
-		Scanner sc = new Scanner(System.in);
+		
 		int subes = 0;
 		
 		System.out.println("¿Subes al piso 2 de la mina?");
 		System.out.println("1. SI");
 		System.out.println("2. NO");
 		
-		 subes = sc.nextInt();
+		 subes = CorrecionErrorInt.getInstance().correcionDeErrores();
 		
 		while (subes != 1 && subes != 2) {
 			System.out.println("Elige entre si o no");
 			
-			subes = sc.nextInt();
+			subes =CorrecionErrorInt.getInstance().correcionDeErrores();
 		}
 		if (subes == 1) {
 			System.out.println("¡Perfecto!");
@@ -187,12 +187,12 @@ public class Minero extends Personaje {
 		
 		Minero.mensaje1Nivel2();
 		
-		int pepi = sc.nextInt();
+		int pepi = CorrecionErrorInt.getInstance().correcionDeErrores();
 		
 		while (pepi != 1 && pepi != 2) {
 			System.out.println("Elige una opción");
 			
-			pepi = sc.nextInt();
+			pepi = CorrecionErrorInt.getInstance().correcionDeErrores();
 		}
 		if (pepi == 1) {
 			System.out.println("Picas hasta salir fuera de la mina");
@@ -200,13 +200,13 @@ public class Minero extends Personaje {
 			Finales.finalRevision(8);
 		} else {
 			Minero.mensaje2Nivel2();
-			int esca = sc.nextInt();
+			int esca = CorrecionErrorInt.getInstance().correcionDeErrores();
 			if (esca == 3) {
 				Minero.mensaje3Nivel2();
-				esca = sc.nextInt();
+				esca = CorrecionErrorInt.getInstance().correcionDeErrores();
 				if (esca == 1) {
 					Minero.mensaje4Nivel2();					
-					esca = sc.nextInt();
+					esca = CorrecionErrorInt.getInstance().correcionDeErrores();
 					if (esca == 2) {
 						System.out.println("bien ahora sal de la mina");
 						System.out.println("saliste de la mina, ganaste");

@@ -9,6 +9,7 @@ public class Personaje  {
 	private String ataques [] = {"","",""};
 	private int danoAtaques[] = {0,0,0};
 	
+	
 	public Personaje() {
 		
 	}
@@ -20,7 +21,9 @@ public class Personaje  {
 		this.vidaMax = vidaMax;
 		this.ataques = ataques;
 		this.danoAtaques = danoAtaques;
+		
 	}
+	
 
 	public String getNombre() {
 		return nombre;

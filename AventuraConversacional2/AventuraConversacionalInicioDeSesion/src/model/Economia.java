@@ -75,7 +75,7 @@ public class Economia extends Personaje {
 	}
 
 	public void Tienda() {
-		Scanner scanner = new Scanner(System.in);
+
 		boolean continuar = true;
 		while (continuar) {
 			System.out.println("Tendera 🙋: Hola bienvenido de vuelta a mi tienda, ¿Que deseas comprar hoy?");
@@ -84,7 +84,7 @@ public class Economia extends Personaje {
 			System.out.println("2. Consultar monedero");
 			System.out.println("3. Salir");
 			System.out.print("Selecciona una opción: ");
-			int opcion = scanner.nextInt();
+			int opcion = CorrecionErrorInt.getInstance().correcionDeErrores();
 
 			switch (opcion) {
 			// Mostrar tienda
@@ -123,22 +123,21 @@ public class Economia extends Personaje {
 	}
 
 	public void selecionarProducto() {
-		Scanner scanner = new Scanner(System.in);
 		System.out.print("Selecciona el número del producto: ");
-		int productoSeleccionado = scanner.nextInt();
+		int productoSeleccionado = CorrecionErrorInt.getInstance().correcionDeErrores();
 		if (productoSeleccionado > 0 && productoSeleccionado <= productos.length) {
 			int precio = precios[productoSeleccionado - 1];
 			if (dinero >= precio) {
 				dinero -= precio;
 				System.out.println("Has comprado " + productos[productoSeleccionado - 1] + ". Nuevo saldo: $" + dinero);
-				inventario[productoSeleccionado-1] =1;
+				inventario[productoSeleccionado - 1] = 1;
 			} else {
 				System.out.println("No tienes suficiente saldo en el monedero.");
 			}
 		} else {
 			System.out.println("Selección inválida.");
 		}
-		
+
 	}
 
 	public void verDinero() {
@@ -157,14 +156,14 @@ public class Economia extends Personaje {
 		}
 
 	}
-	
+
 	public void revisionItems() {
-		if(Economia.getInstance().getInventario(8)==1) {
+		if (Economia.getInstance().getInventario(8) == 1) {
 			Finales.finalRevision(2);
-		}else if(Economia.getInstance().getInventario(3)==1 && Economia.getInstance().getInventario(4)==1 && Economia.getInstance().getInventario(5)==1) {
+		} else if (Economia.getInstance().getInventario(3) == 1 && Economia.getInstance().getInventario(4) == 1
+				&& Economia.getInstance().getInventario(5) == 1) {
 			Finales.finalRevision(6);
 		}
 	}
-	
-	
+
 }

@@ -9,6 +9,7 @@ public class Usuario {
 	String contrasena;
 	int puntuacion;
 	private static Usuario instance = null;
+	protected static String usuarioIn = "";
 
 	public Usuario(String nombre, String contrasena) {
 
@@ -16,15 +17,16 @@ public class Usuario {
 		this.contrasena = contrasena;
 
 	}
-
 	public Usuario() {
-
-	}
-	
-public static Usuario getInstance(){
 		
-		if(instance == null) {
-			
+	}
+
+	
+
+	public static Usuario getInstance() {
+
+		if (instance == null) {
+
 			instance = new Usuario();
 		}
 		return instance;
@@ -54,32 +56,52 @@ public static Usuario getInstance(){
 		this.puntuacion = puntuacion;
 	}
 	
+	public String getUsuario() {
+		return usuarioIn;
+		
+	}
+	
+	public static void darNombreUsuario(String inNombre) {
+		usuarioIn = inNombre;
+	}
+
 	public void crearNuevoUsuario() throws SQLException {
 		DaoUsuario.getInstance().insert(this);
 	}
-	
+
 	public boolean buscarUsuarioPorNombreComtraseña(String nombre, String contraseña) throws SQLException {
-		if(DaoUsuario.getInstance().select(nombre, contraseña)) {
+		if (DaoUsuario.getInstance().select(nombre, contraseña)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
-		
+
 	}
-	public String buscarUsuarioPorNombre (String nombre) throws SQLException{
-		
-		String NombreDadoPorBD =  DaoUsuario.getInstance().selectNombre(nombre);
-		
+
+	public String buscarUsuarioPorNombre(String nombre) throws SQLException {
+
+		String NombreDadoPorBD = DaoUsuario.getInstance().selectNombre(nombre);
+
 		return NombreDadoPorBD;
-		
+
 	}
+
 	public void buscarPorPuntuacionMasAlta() throws SQLException {
 		DaoUsuario.getInstance().selectPuntuacionMasAlta();
 	}
+
 	public void buscarPorPuntuacionMasAltaTOP() throws SQLException {
 		DaoUsuario.getInstance().selectPuntuacionTop();
 	}
-	
+
+	public void darPuntuacion(int puntuacion) {
+		try {
+			DaoUsuario.getInstance().darPuntuacion(puntuacion, usuarioIn);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Hubo un problema al dar puntuación, contacta con el administrador");
+		}
+	}
 
 	@Override
 	public String toString() {

@@ -88,7 +88,7 @@ public class DaoUsuario {
 		pst.setInt(1, puntuacion);
 		pst.setString(2, nombre);
 		if (pst.executeUpdate() > 0) {
-			System.out.println("ENHORABUENA GANASTE " + puntuacion + " PUNTOS");
+			System.out.println("ENHORABUENA EL USUARIO:  " + nombre + " GANO " + puntuacion + " PUNTOS");
 		}
 
 	}
@@ -118,7 +118,7 @@ public class DaoUsuario {
 		while (rst.next()) {
 			String nombre = rst.getString("nombre");
 			int puntuacion = rst.getInt("puntuacion");
-
+			// si chat gpt, expresion regular 
 			System.out.printf("%-8s %-20s %d%n", "PUESTO " + dato, nombre, puntuacion);
 			System.out.println("---------------------------------------------");
 			dato++;

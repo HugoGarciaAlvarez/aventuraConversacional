@@ -50,7 +50,7 @@ public class Batalla {
 	public static int ejecutarAtaque(boolean esJugador, Personaje atacante, Personaje victima) {
 		int indiceAtaque;
 		Random random = new Random();
-		Scanner sc = new Scanner(System.in);
+		
 		if (esJugador) {
 
 			System.out.println("Selecciona tu ataque:");
@@ -59,11 +59,11 @@ public class Batalla {
 						+ atacante.getDanoAtaqueIndice(i) + ")");
 			}
 			System.out.print("Introduce 1, 2 o 3: ");
-			indiceAtaque = sc.nextInt() - 1;
+			indiceAtaque = CorrecionErrorInt.getInstance().correcionDeErrores() - 1;
 
 			while (indiceAtaque < 0 || indiceAtaque >= atacante.getAtaques().length) {
 				System.out.print("Selección inválida. Introduce 1, 2 o 3: ");
-				indiceAtaque = sc.nextInt() - 1;
+				indiceAtaque = CorrecionErrorInt.getInstance().correcionDeErrores() - 1;
 			}
 		} else {
 

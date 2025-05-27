@@ -40,7 +40,7 @@ public class Menu {
 		Usuario usuario = new Usuario();
 		// Valores que se van a pedir
 		String nombre = "";
-		String contraseña = "";
+		String contrasena = "";
 		boolean usuarioEncontrado = false;
 		while (!usuarioEncontrado) {
 
@@ -49,14 +49,21 @@ public class Menu {
 			System.out.println("NOMBRE:");
 			nombre = sc.nextLine();
 			System.out.println("CONTRASEÑA");
-			contraseña = sc.nextLine();
-
+			contrasena = sc.nextLine();
+			
 			// Buscar nombre y usuario en la base de datos
 			try {
-				usuarioEncontrado = usuario.buscarUsuarioPorNombreComtraseña(nombre, contraseña);
+				usuarioEncontrado = usuario.buscarUsuarioPorNombreComtraseña(nombre, contrasena);
+				Usuario.darNombreUsuario(nombre);
+				
+				
+			
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}
+			if(!usuarioEncontrado) {
+				Menu.volverAlMenu();
 			}
 		}
 
